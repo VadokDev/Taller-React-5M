@@ -1,24 +1,30 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
-
+import Tarea from "./Tarea.js";
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Tarea
+        encargado="VadokDev"
+        descripcion="Terminar de grabar el taller"
+      />
+      <Tarea
+        encargado="VadokASDAFSDev"
+        descripcion="Terminar de ASDgrabar el taller"
+      />
+      <Tarea
+        encargado="VadoSDFSDFkDev"
+        descripcion="Terminar de gASDrabar el taller"
+      />
+      <Tarea
+        encargado="VadokASDASDDev"
+        descripcion="Terminar de grabar ASDel taller"
+      />
+      <Tarea
+        encargado="VadokDASDASDDASASDASDev"
+        descripcion="Terminar de grabar eASDASDl taller"
+      />
     </div>
   );
 }
