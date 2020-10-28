@@ -1,21 +1,20 @@
 import React, {useState, useEffect} from "react";
+import {Card, Button} from 'react-bootstrap';
 
 function Tarea(props) {
 	const [estadoTarea, setEstadoTarea] = useState("Pendiente");
 
 	return (
-		<div className="row">
-			<div className="block">
-				<img src={"https://avatars.dicebear.com/api/bottts/" +props.encargado + ".svg"} />
-			</div>			
-			<div className="block">{props.descripcion}</div>
-			<div className="block">{estadoTarea}</div>
-			<div className="block">
-				<button onClick={() => setEstadoTarea("Terminada")}>
-					Terminar
-				</button>
-			</div>
-		</div>
+		<Card>
+		  <Card.Img variant="top" src={"https://avatars.dicebear.com/api/bottts/" +props.encargado + ".svg"} />
+		  <Card.Body>
+		    <Card.Title>{estadoTarea}</Card.Title>
+		    <Card.Text>
+		      {props.descripcion}
+		    </Card.Text>
+		    <Button variant="primary" onClick={() => setEstadoTarea("Terminada")}>Terminar</Button>
+		  </Card.Body>
+		</Card>
 	)
 }
 
