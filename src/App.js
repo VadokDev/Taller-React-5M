@@ -6,6 +6,7 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 
 import { Navbar, Nav, Form, FormControl, Button, Container, Row, Col, Card } from 'react-bootstrap';
 import ValorDolar from "./ValorDolar.js";
+import Counter from "./Counter.js";
 
 function App() {
   return (
@@ -24,6 +25,17 @@ function App() {
       </Navbar>
       
       <Container fluid>
+        <Row>
+          <Col>
+            <Counter />
+          </Col>
+          <Col>
+            <Counter />
+          </Col>
+          <Col>
+            <Counter />
+          </Col>
+        </Row>
         <Row>
           <Col>
             <ValorDolar />
