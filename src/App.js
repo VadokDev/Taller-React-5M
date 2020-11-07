@@ -9,6 +9,7 @@ import ValorDolar from "./ValorDolar.js";
 import Counter from "./Counter.js";
 import Login from "./Login.js";
 import Register from "./Register.js";
+import Tareas from './Tareas.js';
 
 import {
   BrowserRouter as Router,
@@ -75,34 +76,7 @@ function App() {
             </Container>
           </Route>
           <Route path="/tareas">
-            <Container fluid>
-              <Row>
-                <Col>
-                  <Tarea
-                    encargado="VadokDev"
-                    descripcion="Terminar de grabar el taller"
-                  />
-                </Col>
-                <Col>
-                  <Tarea
-                    encargado="VadokDev"
-                    descripcion="Terminar de grabar el taller"
-                  />
-                </Col>
-                <Col>
-                  <Tarea
-                    encargado="VadokDev"
-                    descripcion="Terminar de grabar el taller"
-                  />
-                </Col>
-                <Col>
-                  <Tarea
-                    encargado="VadokDev"
-                    descripcion="Terminar de grabar el taller"
-                  />
-                </Col>
-              </Row>
-            </Container>
+            <Tareas />
           </Route>
           <Route path="/">
             <div>Ola</div>

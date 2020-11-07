@@ -4,7 +4,7 @@ export const ACTION_LOGOUT = 'ACTION_LOGOUT';
 
 export const login = () => {
 	return {
-		type: INCREASE_COUNTER,
+		type: ACTION_LOGIN,
 		payload: {
 			isLogged: true,
 		},
@@ -13,7 +13,7 @@ export const login = () => {
 
 export const logout = () => {
 	return {
-		type: INCREASE_COUNTER,
+		type: ACTION_LOGOUT,
 		payload: {
 			isLogged: false,
 		},

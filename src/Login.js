@@ -1,13 +1,15 @@
 import React, { useState, useEffects } from 'react';
 import axios from 'axios';
 import {Form, Button} from 'react-bootstrap';
+import { useSelector, useDispatch } from 'react-redux';
+import {login, logout} from './redux/actions/authActions.js';
 
 function Login(props) {
 	
 	const [email, setEmail] = useState('');
 	const [pass, setPass] = useState('');
-	const [username, setUsername] = useState('');
 	const [estado, setEstado] = useState('');
+	const dispatch = useDispatch();
 
 	const handleEmail = (e) => {
 		setEmail(e.target.value);
@@ -17,12 +19,21 @@ function Login(props) {
 		setPass(e.target.value);
 	}
 
-	const handleUsername = (e) => {
-		setUsername(e.target.value);
+	const handleLogout = (e) => {
+		dispatch(logout());
 	}
 
 	const handleSubmit = (e) => {
 		e.preventDefault();
+		axios.post('https://taller-react-5min-back.herokuapp.com/auth/login', {
+			email: email,
+			pass: pass,
+		}).then((data) => {
+			console.log(data);
+			dispatch(login());
+			
+			localStorage.setItem('token', data.data.token);
+		})
 	}
 
 	return (
@@ -35,11 +46,6 @@ function Login(props) {
 		    </Form.Text>
 		  </Form.Group>
 
-		  <Form.Group>
-		    <Form.Label>Username</Form.Label>
-		    <Form.Control onChange={handleUsername} type="text" placeholder="Enter username" />
-		  </Form.Group>
-
 		  <Form.Group controlId="formBasicPassword">
 		    <Form.Label>Password</Form.Label>
 		    <Form.Control onChange={handlePass} type="password" placeholder="Password" />
@@ -47,6 +53,10 @@ function Login(props) {
 
 		  <Button onClick={handleSubmit} variant="primary" type="submit">
 		    Enviar
+		  </Button>
+
+		  <Button onClick={handleLogout} variant="danger" type="button">
+		    Logout
 		  </Button>
 		</Form>
 	);
