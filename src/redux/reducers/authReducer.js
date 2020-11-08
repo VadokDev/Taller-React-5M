@@ -1,7 +1,7 @@
 import { ACTION_LOGIN, ACTION_LOGOUT } from '../actions/authActions.js';
 
 const initialState = {
-	isLogged: false,
+	isLogged: localStorage.getItem('token') ? true : false,
 };
 
 const authReducer = (state = initialState, action) => {
